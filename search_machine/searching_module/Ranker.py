@@ -1,5 +1,5 @@
 import lightgbm
-from LSI import LSI
+from search_machine.searching_module.LSI import LSI
 import pickle
 import os
 

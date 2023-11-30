@@ -5,7 +5,7 @@ from gensim.models import TfidfModel
 from gensim.models import LsiModel
 from gensim.corpora import Dictionary
 
-from TrainingDataset import DatasetTrainer
+from search_machine.searching_module.TrainingDataset import DatasetTrainer
 from scipy.spatial.distance import cosine
 
 import nltk

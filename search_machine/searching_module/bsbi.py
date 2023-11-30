@@ -7,9 +7,9 @@ import re
 import random
 
 
-from index import InvertedIndexReader, InvertedIndexWriter
-from util import IdMap, merge_and_sort_posts_and_tfs
-from compression import VBEPostings
+from search_machine.searching_module.index import InvertedIndexReader, InvertedIndexWriter
+from search_machine.searching_module.util import IdMap, merge_and_sort_posts_and_tfs
+from search_machine.searching_module.compression import VBEPostings
 from tqdm import tqdm
 
 import nltk

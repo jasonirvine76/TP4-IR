@@ -1,8 +1,8 @@
-from bsbi import BSBIIndex
-from compression import VBEPostings
+from search_machine.searching_module.bsbi import BSBIIndex
+from search_machine.searching_module.compression import VBEPostings
 import time
-from Ranker import Ranker
-import DocsFinder as finder
+from search_machine.searching_module.Ranker import Ranker
+import search_machine.searching_module.DocsFinder as finder
 import numpy as np
 
 
