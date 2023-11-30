@@ -27,7 +27,7 @@ env_file_path = os.path.join(BASE_DIR, '.env')
 environ.Env.read_env(env_file_path)
 
 DEBUG = env('DEBUG')
-# SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = 'xr_3xv5aabp8ol^2v5s83^u@$7zh6#cr&o%8l4=udw)&t#%(+5'
 
 ALLOWED_HOSTS = ['*']
 
