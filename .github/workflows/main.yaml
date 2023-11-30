@@ -1,0 +1,57 @@
+name: Deploy to VM
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ main, staging ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+env:
+  REGISTRY_USER: ${{ secrets.REGISTRY_USER }}
+  IMAGE_NAME: ${{ secrets.IMAGE_NAME }}
+  IMAGE_TAG: latest
+  CONTAINER_NAME: ${{ secrets.CONTAINER_NAME }}
+  GCP_USERNAME: ${{ secrets.GCP_USERNAME }}
+  GCP_STATIC_IP: ${{ secrets.GCP_STATIC_IP }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up environment variables
+      run: |
+        echo "POSTGRES_DB=${POSTGRES_DB}" >> $GITHUB_ENV
+        echo "POSTGRES_HOST=${POSTGRES_HOST}" >> $GITHUB_ENV
+        echo "POSTGRES_PORT=${POSTGRES_PORT}" >> $GITHUB_ENV
+        echo "POSTGRES_USER=${POSTGRES_USER}" >> $GITHUB_ENV
+        echo "POSTGRES_PASSWORD=${POSTGRES_PASSWORD}" >> $GITHUB_ENV
+        echo "REGISTRY_USER=${REGISTRY_USER}" >> $GITHUB_ENV
+        echo "IMAGE_NAME=${IMAGE_NAME}" >> $GITHUB_ENV
+        echo "CONTAINER_NAME=${CONTAINER_NAME}" >> $GITHUB_ENV
+        echo "GCP_USERNAME=${GCP_USERNAME}" >> $GITHUB_ENV
+        echo "GCP_STATIC_IP=${GCP_STATIC_IP}" >> $GITHUB_ENV
+
+    - name: Build Docker image
+      run: |
+        docker build -t $REGISTRY_USER/$IMAGE_NAME:$IMAGE_TAG .
+        docker login -u $REGISTRY_USER -p ${{ secrets.REGISTRY_PASSWORD }}
+        docker push $REGISTRY_USER/$IMAGE_NAME:$IMAGE_TAG
+
+deploy:
+  runs-on: ubuntu-latest
+  before_script:
+    - chmod 400 $SSH_KEY
+    - apk update && apk add openssh-client
+  script:
+    - ssh -o StrictHostKeyChecking=no -i ${{ secrets.SSH_KEY }} $GCP_USERNAME@$GCP_STATIC_IP "
+      docker container rm -f $CONTAINER_NAME || true &&
+      docker image rm -f $REGISTRY_USER/$IMAGE_NAME:$IMAGE_TAG || true &&
+      docker run --name $CONTAINER_NAME -d -p 80:8080 $REGISTRY_USER/$IMAGE_NAME:$IMAGE_TAG"
+    

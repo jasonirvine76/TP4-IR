@@ -1,15 +1,12 @@
-#base image
-FROM python:3.8.6-slim-buster
+FROM python:3.9-alpine
 
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
+COPY requirements.txt requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
-# working directory
-WORKDIR /app
+COPY . src
+WORKDIR /src
 
-##copy requirements 
-COPY requirements.txt /tmp/requirements.txt
-#install requirements 
-RUN pip install -r /tmp/requirements.txt
-#copy everythings  
-COPY . .
+EXPOSE 8000
+
+ENTRYPOINT [ "python", "core/manage.py" ]
+CMD [ "runserver", "0.0.0.0:8000" ]
