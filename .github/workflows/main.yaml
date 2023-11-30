@@ -37,7 +37,6 @@ jobs:
       
       - name: Deploy to VM
         run: |
-          chmod 400 ${{ secrets.SSH_KEY }}
           apk update && apk add openssh-client
           ssh -o StrictHostKeyChecking=no -i ${{ secrets.SSH_KEY }} $GCP_USERNAME@$GCP_STATIC_IP "
             docker container rm -f $CONTAINER_NAME || true &&
