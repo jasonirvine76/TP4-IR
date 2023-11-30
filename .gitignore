@@ -186,3 +186,4 @@ static/
 *.http
 .vscode/
 logs/
+search_machine/searching_module/data/
