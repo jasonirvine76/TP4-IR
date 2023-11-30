@@ -1,12 +1,8 @@
 name: Deploy to VM
 
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
   push:
     branches: [main, staging]
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 env:
@@ -23,7 +19,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
 
       - name: Set up environment variables
         run: |
@@ -40,11 +36,10 @@ jobs:
           docker push $REGISTRY_USER/$IMAGE_NAME:$IMAGE_TAG
       
       - name: Deploy to VM
-        before_script:
-          - chmod 400 ${{ secrets.SSH_KEY }}
-          - apk update && apk add openssh-client
-        script:
-          - ssh -o StrictHostKeyChecking=no -i ${{ secrets.SSH_KEY }} $GCP_USERNAME@$GCP_STATIC_IP "
+        run: |
+          chmod 400 ${{ secrets.SSH_KEY }}
+          apk update && apk add openssh-client
+          ssh -o StrictHostKeyChecking=no -i ${{ secrets.SSH_KEY }} $GCP_USERNAME@$GCP_STATIC_IP "
             docker container rm -f $CONTAINER_NAME || true &&
             docker image rm -f $REGISTRY_USER/$IMAGE_NAME:$IMAGE_TAG || true &&
             docker run --name $CONTAINER_NAME -d -p 80:8080 $REGISTRY_USER/$IMAGE_NAME:$IMAGE_TAG"
