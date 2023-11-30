@@ -40,7 +40,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y openssh-client
           mkdir -p ~/test_directory
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/test_directory/id_rsa
+          echo "${{ secrets.SSH_KEY }}" > ~/test_directory/id_rsa
           chmod 400 ~/test_directory/id_rsa
           ssh -o StrictHostKeyChecking=no -i ~/test_directory/id_rsa $GCP_USERNAME@$GCP_STATIC_IP "
           docker container rm -f $CONTAINER_NAME || true &&
