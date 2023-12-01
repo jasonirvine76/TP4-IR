@@ -3,12 +3,11 @@ FROM python:3.9-alpine
 EXPOSE 8000
 WORKDIR /src
 
-RUN apk add --no-cache g++ gcc musl-dev lapack-dev gfortran
 
-RUN apt-get -y install libc-dev
-RUN apt-get -y install build-essential
-RUN pip install -U pip
+RUN apk add --no-cache --virtual .build-deps g++ gcc libxml2-dev libxslt-dev \
+    && apk add libstdc++
 
+RUN pip install numpy scipy gensim
 
 COPY requirements.txt /src
 RUN pip install --upgrade pip && \
