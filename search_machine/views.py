@@ -6,3 +6,9 @@ def ask(request):
     my_list = [1, 2, 3]
     context = {'my_list': my_list}
     return render(request, 'my_template.html', context)
+
+def home(request):
+    return render(request, 'home.html')
+
+def result(request):
+    return render(request, 'result_page.html')
