@@ -54,8 +54,8 @@ class Ranker:
         filepath = os.path.join(self.folder_path, "lsi")
         with open(filepath, 'rb') as file:
             self.lsi = pickle.load(file)
-
-
+            
+        
 
 # di contoh kali ini, kita tidak menggunakan validation set
 # jika ada yang ingin menggunakan validation set, silakan saja

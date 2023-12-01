@@ -6,7 +6,8 @@ import search_machine.searching_module.DocsFinder as finder
 import numpy as np
 
 
-def ask(query):
+def ask(request):
+    query = request
     BSBI_instance = BSBIIndex(data_dir='search_machine\searching_module\data\collections',
                               postings_encoding=VBEPostings,
                               output_dir='search_machine\searching_module\data\index')
