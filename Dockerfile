@@ -3,8 +3,11 @@ FROM python:3.9-alpine
 EXPOSE 8000
 WORKDIR /src
 
+RUN apk add --no-cache g++ gcc musl-dev lapack-dev gfortran
+
 COPY requirements.txt /src
-RUN pip install -r requirements.txt --no-cache-dir
+RUN pip install --upgrade pip && \
+    pip install -r requirements.txt --no-cache-dir
 
 COPY . /src
 
