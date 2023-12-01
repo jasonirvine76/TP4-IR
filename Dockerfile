@@ -1,13 +1,9 @@
-FROM python:3.9-alpine
+FROM python:3.9-slim
 
 EXPOSE 8000
 WORKDIR /src
 
-
-RUN apk add --no-cache --virtual .build-deps g++ gcc libxml2-dev libxslt-dev \
-    && apk add libstdc++
-
-RUN pip install numpy scipy gensim
+RUN apt-get update && apt-get install -y gcc
 
 COPY requirements.txt /src
 RUN pip install --upgrade pip && \
