@@ -7,7 +7,7 @@ class Ranker:
     def __init__(self, docs_location = r"search_machine\searching_module\data\docs-train\docs_train.txt", 
                  queries_location =r"search_machine\searching_module\data\query\query.txt", 
                  qrels_location = r"search_machine\searching_module\data\qrels\qrels_extra_irelevant.txt",
-                 folder_path = "search_machine\searching_module\data\model_letor") :
+                 folder_path = "/src/search_machine/searching_module/data/model_letor") :
         self.docs_location = docs_location
         self.queries_location = queries_location
         self.qrels_location = qrels_location
@@ -54,8 +54,8 @@ class Ranker:
         filepath = os.path.join(self.folder_path, "lsi")
         with open(filepath, 'rb') as file:
             self.lsi = pickle.load(file)
-
-
+            
+        
 
 # di contoh kali ini, kita tidak menggunakan validation set
 # jika ada yang ingin menggunakan validation set, silakan saja

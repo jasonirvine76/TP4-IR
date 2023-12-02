@@ -4,7 +4,7 @@ def open_file(number):
     folder_number = number // 10000  # Calculate folder number
     file_name = f"{number}.txt"  # Construct file name
 
-    file_path = f"collections/{folder_number}/{file_name}"
+    file_path = f"search_machine\searching_module\data\collections/{folder_number}/{file_name}"
 
     try:
         with open(file_path, 'r', encoding="utf-8") as file:

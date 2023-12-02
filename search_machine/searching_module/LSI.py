@@ -11,12 +11,7 @@ from scipy.spatial.distance import cosine
 import nltk
 from nltk.util import ngrams
 from Levenshtein import distance as levenshtein_distance
-
-
-
-
-# bentuk dictionary, bag-of-words corpus, dan kemudian Latent Semantic Indexing
-
+  
 class LSI:
 
   NUM_LATENT_TOPICS = 200
