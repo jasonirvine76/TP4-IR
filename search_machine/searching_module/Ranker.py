@@ -7,7 +7,7 @@ class Ranker:
     def __init__(self, docs_location = r"search_machine\searching_module\data\docs-train\docs_train.txt", 
                  queries_location =r"search_machine\searching_module\data\query\query.txt", 
                  qrels_location = r"search_machine\searching_module\data\qrels\qrels_extra_irelevant.txt",
-                 folder_path = "app/data/model_letor") :
+                 folder_path = "/src/model_letor") :
         self.docs_location = docs_location
         self.queries_location = queries_location
         self.qrels_location = qrels_location

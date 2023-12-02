@@ -8,9 +8,9 @@ import numpy as np
 
 def ask(request):
     query = request
-    BSBI_instance = BSBIIndex(data_dir='app/data/collections',
+    BSBI_instance = BSBIIndex(data_dir='/src/collections',
                               postings_encoding=VBEPostings,
-                              output_dir='app/data/index')
+                              output_dir='/src/index')
     
     current_ranker = Ranker()
     current_ranker.load()
