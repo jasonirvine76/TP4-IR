@@ -10,3 +10,9 @@ def ask(request):
             return render(request, 'my_template.html', context)
         except Exception as e:
             print(e)
+
+def home(request):
+    return render(request, 'home.html')
+
+def result(request):
+    return render(request, 'result_page.html')

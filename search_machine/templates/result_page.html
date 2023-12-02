@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>build this webpage - Google Search</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  </head>
+  <style>
+    * {
+        -webkit-box-sizing: border-box;
+           -moz-box-sizing: border-box;
+                box-sizing: border-box;
+        font-family: 'Roboto',arial, sans-serif;
+      }
+      
+      body {
+        margin: 0;
+        font-size: 13px;
+      }
+      
+      ul {
+        margin: 0;
+        padding: 0;
+      }
+      
+      li {
+        display: inline;
+      }
+      
+      img {
+        width: 100px;
+        display: inline;
+        margin: 25px;
+        vertical-align: top;
+      }
+      
+      input {
+        display: inline;
+        width: 620px;
+        height: 40px;
+        padding: 10px;
+        border-radius: 20px;
+        border: 1px solid rgb(199, 199, 199);
+        vertical-align: top;
+      }
+      
+      h2 {
+        font-weight: normal;
+        margin: 0 0 3px 0;
+      }
+      
+      h2 a {
+        color: rgb(0, 3, 166);
+      }
+      
+      h2 a:hover {
+        text-decoration: underline;
+      }
+      
+      .link {
+        color: green;
+        font-size: 14px;
+      }
+      
+      a {
+        text-decoration: none;
+        color: rgb(48, 48, 48);
+      }
+      
+      p {
+        margin: 0;
+      }
+      
+      span {
+        color: rgb(150, 150, 150);
+      }
+      
+      .topContainer {
+        display: block;
+        border-bottom: 1px solid rgb(209, 209, 209);
+      }
+      
+      .accountOptions {
+        display: inline;
+        float: right;
+        padding: 20px;
+        margin-top: 0px;
+      }
+      
+      .accountOptions li {
+        padding: 10px;
+      }
+      
+      .fa-th {
+        color: #545454;
+        font-size: 1.3em;
+      }
+      
+      .fa-angle-right {
+        font-size: 18px;
+      }
+      
+      .signIn {
+        display: inline;
+        border-radius: 3px;
+        border: none;
+        padding: 10px;
+        width: 70px;
+        color: white;
+        background: #3c7ae4;
+        font-weight: bold;
+      }
+      
+      .searchTools {
+        margin-top: 20px;
+        width: 620px;
+        display: inline-block;
+        vertical-align: bottom;
+      }
+      
+      .searchToolOptions {
+        font-size: 13px;
+        margin-top: 30px;
+      }
+      
+      .left {
+        float: left;
+        margin-right: 10px;
+        margin-left: 0px;
+      }
+      
+      .right {
+        float: right;
+        margin-right: 0px;
+        margin-left: 10px;
+      }
+      
+      .searchToolOptions li {
+        padding: 10px;
+      }
+      
+      .active {
+        font-weight: bold;
+        border-bottom: 3px solid #1A73E8;
+      }
+      
+      .active a {
+        color: #1A73E8 !important;
+      }
+      
+      .searchResults {
+        margin-left: 162px;
+        width: 620px;
+        display: inline-block;
+      }
+      
+      .result {
+        margin: 20px 0 20px 5px;
+      }
+      
+      .numberOfResults {
+        margin-top: 15px;
+        color: rgb(150, 150, 150);
+      }
+      
+      .result p {
+        margin: 3px 0 25px 0;
+        color: #545454;
+        line-height: 1.5em;
+      }
+      
+      table {
+        margin: 0 auto;
+        text-align: center;
+        letter-spacing: -0.12em;
+        font-size: 2.3em;
+        margin-bottom: 20px;
+        font-weight: bold;
+      }
+      
+      .pageNumber {
+        font-size: 12px;
+        color: rgb(50, 93, 246);
+        letter-spacing: normal;
+        text-align: center;
+      }
+      
+      .blue {
+        color: rgb(50, 93, 246);
+      }
+      
+      .red {
+        color: rgb(218, 63, 63);
+      }
+      
+      .green {
+        color: rgb(76, 140, 68);
+      }
+      
+      .yellow {
+        color: rgb(236, 184, 29);
+      }
+      
+      .footer {
+        position: absolute;
+        background: #f2f2f2;
+        width: 100%;
+        padding: 10px;
+        border-top: 1px solid rgb(209, 209, 209);
+      }
+      
+      .footer p, .footer ul {
+        margin-left: 162px;
+      }
+      
+      .footer p {
+        margin-bottom: 20px;
+      }
+      
+      .footer li {
+        margin-right: 20px;
+      }
+  </style>
+  <body>
+    <div class="topContainer">
+        <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="">
+        <ul class="accountOptions">
+          <li><a href="#"><i class="fas fa-th"></i></a></li>
+          <li><button class="signIn" type="button" name="button">Sign In</button></li>
+        </ul>
+
+        <div class="searchTools">
+          <input type="text" name="" value="build this webpage">
+          <ul class="searchToolOptions">
+            <li class="left active"><a href="#">All</a></li>
+            <li class="left"><a class="searchToolOption" href="#">News</a></li>
+            <li class="left"><a class="searchToolOption" href="#">Videos</a></li>
+            <li class="left"><a class="searchToolOption" href="#">Shopping</a></li>
+            <li class="left"><a class="searchToolOption" href="#">Maps</a></li>
+            <li class="left"><a class="searchToolOption" href="#">More</a></li>
+            <li class="right"><a class="searchToolOption" href="#">Settings</a></li>
+            <li class="right"><a class="searchToolOption" href="#">Tools</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="searchResults">
+        <p class="numberOfResults">About 142,000,000 results (0.48 seconds)</p>
+
+        <div class="result">
+          <h2><a href="#">With zero coding experience, artist building 180 webpages in 180 days</a></h2>
+          <a class="link" href="#">https://arstechnica.com/.../with-zero-coding-experience-artist-building-180-webpages-...</a>
+          <p><span>Jul 26, 2013 - </span>117 days ago, having never done any programming in her life, Jennifer Dewalt built her first webpage. The next day, she built another, and she ...</p>
+        </div>
+
+        <div class="result">
+          <h2><a href="#">build this webpage</a></h2>
+          <a class="link" href="#">https://benjdelt.github.io/google-results/</a>
+          <p><span></span>About 2.690.000 results (0,31 seconds). With zero coding experience, artist building 180 webpages in 180 days https://arstechnica.com/.</p>
+        </div>
+
+        <div class="result">
+          <h2><a href="#">Google Homepage</a></h2>
+          <a class="link" href="#">swatikumar16.github.io/google-homepage/</a>
+          <p><span></span>With zero coding experience, artist building 180 webpages . ... days ago, having never done any programming in her life, Jennifer Dewalt built her first webpage.</p>
+        </div>
+
+        <div class="result">
+          <h2><a href="#">build this webpage - GitHub Pages</a></h2>
+          <a class="link" href="#">https://christine-27.github.io/google-homepage/</a>
+          <p>With zero coding experience, artist building 180 webpages . ... days ago, having never done any programming in her life, Jennifer Dewalt built her first webpage.</p>
+        </div>
+
+        <div class="result">
+          <h2><a href="#">Jennifer Dewalt — I'm learning to code by building 180 websites in...</a></h2>
+          <a class="link" href="#">blog.jenniferdewalt.com/post/.../im-learning-to-code-by-building-180-websites-in</a>
+          <p><span>Jul 24, 2013 - </span>Build a different website every day for 180 consecutive days. Every website must be accompanied by a blog post. Any code I write must be ...</p>
+        </div>
+
+        <div class="result">
+          <h2><a href="#">The Best Website Builders for 2019 | PCMag.com</a></h2>
+          <a class="link" href="#">https://www.pcmag.com › ... › Software › Small Business › Web Site Hosting Services</a>
+          <p><span>Dec 14, 2018 - </span>Building a Website Has Never Been Easier. Getting your message out these days requires good helpings of Facebook and Twitter, with maybe ...</p>
+        </div>
+
+        <div class="result">
+          <h2><a href="#">Squarespace: Build a Website – Website Builder</a></h2>
+          <a class="link" href="#">https://www.squarespace.com/</a>
+          <p>Squarespace is the all-in-one solution for anyone looking to create a beautiful website. Domains, eCommerce, hosting, galleries, analytics, and 24/7 support all ...</p>
+        </div>
+
+        <div class="result">
+          <h2><a href="#">How to Create a Website: Step-by-Step Guide for Beginners (2019)</a></h2>
+          <a class="link" href="#">https://websitesetup.org/</a>
+          <p><span>Jan 10, 2019 - </span>Learn how to make a website and set it up. This site contains different tutorials on how to build a website using WordPress, Joomla, Drupal ...</p>
+        </div>
+
+        <div class="result">
+          <h2><a href="#">Make a Website: Free Tutorial | Codecademy</a></h2>
+          <a class="link" href="#">https://www.codecademy.com/learn/make-a-website</a>
+          <p>Explore HTML & CSS fundamentals as you build a website in this ... You'll build four simple websites using web development fundamentals, including HTML5, ...</p>
+        </div>
+
+        <div class="result">
+          <h2><a href="#">Building Your First Web Page - Learn to Code HTML & CSS</a></h2>
+          <a class="link" href="#">https://learn.shayhowe.com/html-css/building-your-first-web-page/</a>
+          <p>And chances are someone somewhere has built a website with your exact search in mind. Within this book I'm going to show you how to build your own ...</p>
+        </div>
+
+          <table>
+            <tr>
+              <td><span class="blue">G</span></td>
+              <td><span class="red">o</span></td>
+              <td><span class="yellow">o</span></td>
+              <td><span class="yellow">o</span></td>
+              <td><span class="yellow">o</span></td>
+              <td><span class="yellow">o</span></td>
+              <td><span class="yellow">o</span></td>
+              <td><span class="yellow">o</span></td>
+              <td><span class="yellow">o</span></td>
+              <td><span class="yellow">o</span></td>
+              <td><span class="yellow">o</span></td>
+              <td><span class="yellow">o</span></td>
+              <td><span class="blue">g</span></td>
+              <td><span class="green">l</span></td>
+              <td><span class="red">e</span></td>
+              <td rowspan="2" style="width: 10px;"></td>
+              <td><span class="blue"><i class="fas fa-angle-right"></i></span></td>
+            </tr>
+            <tr>
+              <td class="pageNumber"></td>
+              <td class="pageNumber"></td>
+              <td class="pageNumber">1</td>
+              <td class="pageNumber">2</td>
+              <td class="pageNumber">3</td>
+              <td class="pageNumber">4</td>
+              <td class="pageNumber">5</td>
+              <td class="pageNumber">6</td>
+              <td class="pageNumber">7</td>
+              <td class="pageNumber">8</td>
+              <td class="pageNumber">9</td>
+              <td class="pageNumber">10</td>
+              <td colspan="3"></td>
+              <td class="pageNumber">Next</td>
+            </tr>
+          </table>
+      </div>
+
+      <div class="footer">
+        <p><strong>Seattle, WA</strong> - From your search history - Use precise location - Learn more</p>
+        <ul>
+            <li><a href="#">Help</a></li>
+            <li><a href="#">Send feedback</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Terms</a></li>
+        </ul>
+      </div>
+
+
+
+  </body>
+</html>

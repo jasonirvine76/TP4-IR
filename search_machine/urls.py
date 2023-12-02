@@ -5,4 +5,6 @@ from search_machine.views import *
 
 urlpatterns = [
     path('ask/', ask),
+    path('', home),
+    path('result/', result),
 ]
