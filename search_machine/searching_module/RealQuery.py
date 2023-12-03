@@ -8,17 +8,22 @@ import numpy as np
 
 def ask(request):
     query = request
-    BSBI_instance = BSBIIndex(data_dir='/src/search_machine/searching_module/data/collections',
+    BSBI_instance = BSBIIndex(data_dir='search_machine/searching_module/data/collections',
                               postings_encoding=VBEPostings,
-                              output_dir='/src/search_machine/searching_module/data/index')
-    
+                              output_dir='search_machine/searching_module/data/index')
+    import time
+    start_time = time.perf_counter()
     current_ranker = Ranker()
     current_ranker.load()
+    end_time = time.perf_counter()
+    print(end_time - start_time)
     
     result = BSBI_instance.retrieve_bm25(query, k=100)
     
+    docs_content = {}
     docs = []
     for (score, doc) in result:
+        docs_content[int(doc[:-4])] = finder.get_content(int(doc[:-4]))
         docs.append((int(doc[:-4]), finder.open_file(int(doc[:-4]))))
 
     X_unseen = []
@@ -34,8 +39,20 @@ def ask(request):
     result_docs = []
     for (doc, score) in sorted_did_scores:
         result_docs.append(doc)
-    
-    return result_docs
+    result_with_content = []
+    for docs_id in result_docs:
+        content = docs_content[docs_id]
+        preview_length = 100
+        preview = content[:preview_length] + "..." if len(content) > preview_length else content
+        title = content.split()
+        title = " ".join(title[:6])
+        result_with_content.append(
+            {
+                'title':title,
+                'preview':preview
+            }
+        )
+    return result_with_content
 
 
 if __name__ == "__main__":

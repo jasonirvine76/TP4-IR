@@ -7,7 +7,7 @@ def ask(request):
         try:
             result = search_engine.ask(param)
             context = {"my_list" : result}
-            return render(request, 'my_template.html', context)
+            return render(request, 'result_page.html', context)
         except Exception as e:
             print(e)
 

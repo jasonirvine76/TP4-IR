@@ -14,6 +14,19 @@ def open_file(number):
         return tokens
     except FileNotFoundError:
         return []
+    
+def get_content(number):
+    folder_number = number // 10000  # Calculate folder number
+    file_name = f"{number}.txt"  # Construct file name
+
+    file_path = f"search_machine\searching_module\data\collections/{folder_number}/{file_name}"
+
+    try:
+        with open(file_path, 'r', encoding="utf-8") as file:
+            content = file.read()
+        return content
+    except FileNotFoundError:
+        return []
 
 if __name__ == "__main__":
     # Example usage
