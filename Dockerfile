@@ -10,8 +10,8 @@ RUN pip install --upgrade pip && \
     pip install -r requirements.txt --no-cache-dir
 
 RUN python -m nltk.downloader stopwords punkt
-RUN python manage.py makemigrations
-RUN python manage.py migrate
+RUN python -m manage.py makemigrations
+RUN python -m manage.py migrate
 
 COPY . /src
 
