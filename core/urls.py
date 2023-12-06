@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.urls import path, include
 from django.views.generic import RedirectView
+from django.contrib import admin
 urlpatterns = [
+    path('backend/admin', admin.site.urls),
     path(r'', RedirectView.as_view(url='/search-machine')),
     path('search-machine/', include('search_machine.urls')),
 ]
