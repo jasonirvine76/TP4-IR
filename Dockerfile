@@ -9,6 +9,8 @@ COPY requirements.txt /src
 RUN pip install --upgrade pip && \
     pip install -r requirements.txt --no-cache-dir
 
+RUN python -m nltk.downloader stopwords punkt
+
 COPY . /src
 
 
