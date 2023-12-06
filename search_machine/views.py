@@ -6,8 +6,8 @@ def ask(request):
         param  = request.GET.get('query', 'elegxo meaning')
         try:
             result = search_engine.ask(param)
-            context = {"my_list" : result}
-            return render(request, 'my_template.html', context)
+            context = {"my_list" : result, "query" : param}
+            return render(request, 'result_page.html', context)
         except Exception as e:
             print(e)
 
@@ -16,3 +16,10 @@ def home(request):
 
 def result(request):
     return render(request, 'result_page.html')
+
+def detail(request, id):
+    doc = search_engine.get_doc_by_id(id)
+    context = {
+        'content':doc
+    }
+    return render(request, 'detail_page.html', context)

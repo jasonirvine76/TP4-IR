@@ -2,6 +2,7 @@ import lightgbm
 from search_machine.searching_module.LSI import LSI
 import pickle
 import os
+from ..apps import lsi, ranker
 
 class Ranker:
     def __init__(self, docs_location = r"search_machine\searching_module\data\docs-train\docs_train.txt", 
@@ -12,6 +13,8 @@ class Ranker:
         self.queries_location = queries_location
         self.qrels_location = qrels_location
         self.folder_path = folder_path
+        self.ranker = None
+        self.lsi = None
     
     def do_ranking(self):
         self.ranker = lightgbm.LGBMRanker(
@@ -47,6 +50,12 @@ class Ranker:
             pickle.dump(self.lsi, file)
 
     def load(self):
+
+        if lsi and ranker:
+            self.ranker = ranker
+            self.lsi = lsi
+            return None
+
         filepath = os.path.join(self.folder_path, "ranker")
         with open(filepath, 'rb') as file:
             self.ranker = pickle.load(file)
@@ -54,6 +63,7 @@ class Ranker:
         filepath = os.path.join(self.folder_path, "lsi")
         with open(filepath, 'rb') as file:
             self.lsi = pickle.load(file)
+
             
         
 
