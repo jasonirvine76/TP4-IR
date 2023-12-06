@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>build this webpage - Google Search</title>
+    <title>BukanSearchEngine Search</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -225,70 +225,52 @@
   </style>
   <body>
     <div class="topContainer">
-        <a href="/search-machine"> <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt=""></a>
-        <ul class="accountOptions">
-          <li><a href="#"><i class="fas fa-th"></i></a></li>
-          <li><button class="signIn" type="button" name="button">Sign In</button></li>
-        </ul>
-
+        <a href="/search-machine"> <img src="/static/logo.png" alt=""></a>
         <div class="searchTools">
-          <input type="text" name="" value="build this webpage">
-          <ul class="searchToolOptions">
-          </ul>
+          <form action="/search-machine/ask" method="get">
+              <input type="text" name="query" value="{{query}}">
+              <ul class="searchToolOptions">
+              </ul>
+          </form>
         </div>
-
       </div>
 
       <div class="searchResults">
         {% for item in my_list %}
           <div class="result">
-            <h2><a href="#">{{item.title}}</a></h2>
-            <a class="link" href="#">https://arstechnica.com/.../with-zero-coding-experience-artist-building-180-webpages-...</a>
+            <h2><a href="{% url 'detail_document' item.id%}">{{item.title}}...</a></h2>
+            <a class="link" href="{% url 'detail_document' item.id%}">https://35.213.165.16{% url 'detail_document' item.id%}</a>
             <p>{{item.preview}}</p>
           </div>
         {% endfor %}
 
           <table>
             <tr>
-              <td><span class="blue">G</span></td>
-              <td><span class="red">o</span></td>
-              <td><span class="yellow">o</span></td>
-              <td><span class="yellow">o</span></td>
-              <td><span class="yellow">o</span></td>
-              <td><span class="yellow">o</span></td>
-              <td><span class="yellow">o</span></td>
-              <td><span class="yellow">o</span></td>
-              <td><span class="yellow">o</span></td>
-              <td><span class="yellow">o</span></td>
-              <td><span class="yellow">o</span></td>
-              <td><span class="yellow">o</span></td>
-              <td><span class="blue">g</span></td>
-              <td><span class="green">l</span></td>
-              <td><span class="red">e</span></td>
+              <td><span class="blue">B</span></td>
+              <td><span class="red">u</span></td>
+              <td><span class="yellow">k</span></td>
+              <td><span class="yellow">a</span></td>
+              <td><span class="yellow">n</span></td>
+              <td><span class="yellow">S</span></td>
+              <td><span class="yellow">e</span></td>
+              <td><span class="yellow">a</span></td>
+              <td><span class="yellow">r</span></td>
+              <td><span class="yellow">c</span></td>
+              <td><span class="yellow">h</span></td>
+              <td><span class="yellow">E</span></td>
+              <td><span class="yellow">n</span></td>
+              <td><span class="yellow">g</span></td>
+              <td><span class="yellow">i</span></td>
+              <td><span class="blue">n</span></td>
+              <td><span class="green">e</span></td>
               <td rowspan="2" style="width: 10px;"></td>
-              <td><span class="blue"><i class="fas fa-angle-right"></i></span></td>
             </tr>
-            <tr>
-              <td class="pageNumber"></td>
-              <td class="pageNumber"></td>
-              <td class="pageNumber">1</td>
-              <td class="pageNumber">2</td>
-              <td class="pageNumber">3</td>
-              <td class="pageNumber">4</td>
-              <td class="pageNumber">5</td>
-              <td class="pageNumber">6</td>
-              <td class="pageNumber">7</td>
-              <td class="pageNumber">8</td>
-              <td class="pageNumber">9</td>
-              <td class="pageNumber">10</td>
-              <td colspan="3"></td>
-              <td class="pageNumber">Next</td>
-            </tr>
+            
           </table>
       </div>
 
       <div class="footer">
-        <p><strong>Depok,</strong> Made with Django by:</p>
+        <p><strong></strong> Made with Django by:</p>
         <ul>
             <li><a href="#">Abdul Rafi</a></li>
             <li><a href="#">Jason Irvine Mahendra Putra</a></li>

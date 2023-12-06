@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google Search</title>
+    <title>BukanSearchEngine</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
@@ -12,8 +12,8 @@
         }
         .google-logo {
             width: 272px;
-            height: 92px;
-            background: url('https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png') no-repeat center;
+            height: 272px;
+            background: url('/static/logo.png') no-repeat center;
             background-size: contain;
             margin: 150px auto 50px;
         }
@@ -30,11 +30,10 @@
     </style>
 </head>
 <body>
-
     <div class="container">
         <div class="google-logo"></div>
         <div class="search-container">
-            <form action="http://localhost:8000/search-machine/ask" method="get" class="search-box">
+            <form action="/search-machine/ask" method="get" class="search-box">
                 <div class="input-group">
                     <input type="text" class="form-control rounded-left" name="query" placeholder="      What's on your mind?" aria-label="Google Search" aria-describedby="button-addon2">
                     <div style="position:absolute; margin-top:7px; margin-left:5px">

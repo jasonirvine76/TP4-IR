@@ -7,4 +7,5 @@ urlpatterns = [
     path('ask/', ask),
     path('', home),
     path('result/', result),
+    path('detail/<int:id>', detail, name='detail_document')
 ]

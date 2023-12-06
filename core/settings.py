@@ -27,6 +27,7 @@ env_file_path = os.path.join(BASE_DIR, '.env')
 environ.Env.read_env(env_file_path)
 
 DEBUG = env('DEBUG')
+DEBUG = True
 SECRET_KEY = 'dy_gxv5aabp8ol^2v5s83^u@$7zh6#cr&o%8l4=udw)&t#%(+5'
 
 ALLOWED_HOSTS = ['*']
@@ -130,7 +131,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Asia/Dhaka'
+TIME_ZONE = 'Asia/Jakarta'
 
 USE_I18N = True
 

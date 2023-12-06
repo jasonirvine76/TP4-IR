@@ -9,6 +9,8 @@ class SearchMachineConfig(AppConfig):
     def ready(self):
         global lsi
         global ranker
+        # lsi = None
+        # ranker = None
         filepath = os.path.join("search_machine/searching_module/data/model_letor", "ranker")
         with open(filepath, 'rb') as file:
             ranker = pickle.load(file)
