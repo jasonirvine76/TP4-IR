@@ -34,15 +34,18 @@ jobs:
           docker build -t $REGISTRY_USER/$IMAGE_NAME:$IMAGE_TAG .
           docker login -u $REGISTRY_USER -p ${{ secrets.REGISTRY_PASSWORD }}
           docker push $REGISTRY_USER/$IMAGE_NAME:$IMAGE_TAG
-      
-      - name: Deploy to VM
+
+      - name: Setting Up SSH Key to access VM
         run: |
           sudo apt-get update
           sudo apt-get install -y openssh-client
-          mkdir -p ~/test_directory
-          echo "${{ secrets.SSH_KEY }}" > ~/test_directory/id_rsa
-          chmod 400 ~/test_directory/id_rsa
-          ssh -o StrictHostKeyChecking=no -i ~/test_directory/id_rsa $GCP_USERNAME@$GCP_STATIC_IP "
+          mkdir -p ~/access_key
+          echo "${{ secrets.SSH_KEY }}" > ~/access_key/id_rsa
+          chmod 400 ~/access_key/id_rsa
+
+      - name: Deploy to VM
+        run: |
+          ssh -o StrictHostKeyChecking=no -i ~/access_key/id_rsa $GCP_USERNAME@$GCP_STATIC_IP "
           docker container rm -f $CONTAINER_NAME || true &&
           docker image rm -f $REGISTRY_USER/$IMAGE_NAME:$IMAGE_TAG || true &&
           docker run --name $CONTAINER_NAME -v /home/search_machine:/src/search_machine/searching_module/data -p 80:8000 -d $REGISTRY_USER/$IMAGE_NAME:$IMAGE_TAG"
