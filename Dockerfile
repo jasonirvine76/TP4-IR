@@ -13,6 +13,8 @@ RUN python -m nltk.downloader stopwords punkt
 
 COPY . /src
 
+COPY docker-entrypoint.sh /src/
+RUN chmod +x /src/docker-entrypoint.sh
 
 ENTRYPOINT [ "/src/docker-entrypoint.sh" ]
 CMD [ "manage.py", "runserver", "0.0.0.0:8000", "python" ]

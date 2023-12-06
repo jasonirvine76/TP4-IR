@@ -1,6 +1,3 @@
-Here is an example (docker-entrypoint.sh) :
-
-#!/bin/bash
 
 # Collect static files
 echo "Collect static files"
