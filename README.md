@@ -1,22 +1,13 @@
-## Django Project initializer for Ready Work 
+## About Project
 
-## Installation
+Search Engine dengan MSMARCRO dataset. MSMARCRO merupakan data yang dikumpulkan oleh microsoft berdasarkan pertanyaan yang dalam mensin pencari BING dan dokumen terkait pertanyaan tersebut.  Terdapat 1.000.000 document, 1.185.869 qrels, dan 76.000 query yang diambil dari MSMARCRO.  Sebanyak 200.000 document digunakan untuk membuat model LETOR.
 
-Follow these steps:
-- Install latest Python3
-- Install `virtualenv` with `pip install virtualenv`
-- Create an env in this folder called `env` (naming is important) `virtualenv ./env`
-- Activate the python environment with `source ./env/bin/activate`
-- Install the python Dependencies with `pip install -r requirements.txt`
-- You are now ready to go!
+* [Repository](https://github.com/jasonirvine76/TP4-IR)
+* [Data for this Project](https://drive.google.com/file/d/1F7JF7mzxbHVDWHPV-0B-2WBeiLcBqCQZ/view?usp=sharing)
+* [Demo Video](https://drive.google.com/file/d/1U6_HTczhuTyKt5uwYAWicyL5Y0Icv_y8/view?usp=sharing)
+* [Site](http://35.213.165.16/search-machine/)
+* [dataset-source](https://ir-datasets.com/beir.html#beir/msmarco)
 
-## Running
-- Copy `env.example` as `.env` and put relevant value
-- `python manage.py runserver`
-- [Postman Collection](https://www.getpostman.com/collections/68de849dd7c6e44e6692)
+---
 
-## Features 
-- Django Boilerplate with django-rest-framework and drf-simple-jwt 
-- Login(email/phone)
-- Registration
 
