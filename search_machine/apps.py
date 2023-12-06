@@ -11,10 +11,10 @@ class SearchMachineConfig(AppConfig):
         global ranker
         # lsi = None
         # ranker = None
-        filepath = os.path.join("search_machine/searching_module/data/model_letor", "ranker")
+        filepath = os.path.join("/src/search_machine/searching_module/data/model_letor", "ranker")
         with open(filepath, 'rb') as file:
             ranker = pickle.load(file)
         
-        filepath = os.path.join("search_machine/searching_module/data/model_letor", "lsi")
+        filepath = os.path.join("/src/search_machine/searching_module/data/model_letor", "lsi")
         with open(filepath, 'rb') as file:
             lsi = pickle.load(file)
